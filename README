@@ -1,0 +1,20 @@
+¿Como esta realizado el proyecto?
+
+HTML: Utilizamos un Label que nos muestra que es el apartado de Localizacion y un input con un v-model ya que estamos utilizando VUE , luego un button que dice "Obtener Ubicacion" que tiene un @click que seria un evento
+
+En camara hicimos lo mismo con el label camara y usamos un video, utilizamos el ref="" ya que v-model no nos deja  luego usamos dos botones uno para que nos de el permiso de acceder a su camara y otro para capturar esa imagen. Utilizamos Canvas para mostrar el video osea la captura lo mismo con un ref y utilizamos un input tipo hidden para que podamos guardar esa foto 
+
+JS: En data mostramos la Ubi con un string vacio ya que ahi nos mandaria la longitud y latitud, un video que muestre que esta habilitado osea con true lo mismo con el canvas, y la foto en formato string vacio porque ahi nos llegaria la foto en modo texto. En Methods utilizamos obtenerUbicacion()muestra un this.ubi que selecciona a la ubi mostrada en data para que cuando de el permiso escriba un "Cargando" si da succes ocurre una funcion sino la otra 
+
+abrirCamara() es parecida a la misma ya que primero pide acceso y muestra en Stream osea en un video.
+todo esto con un try y un catch para que se pueda evaluar si ocurre un error
+
+capturarFoto() guarda en una constante video y canvas para que luego pueda usar su tamaño y mostrar lo q se mostro en el video, lo guarda en un URL para poder mandarlo en formato texto
+
+PHP: Nada mas colocamos $Localizacion y $Foto lo insertamos en la base de datos con direccion y foto y se envian los datos en la base.
+
+---------------------------------------------------------------------------------------------------
+
+Como no tenemos camara lo subimosa un repo para poder evaluarlo con el celular .
+
+Saludos Jony
