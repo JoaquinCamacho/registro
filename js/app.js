@@ -16,7 +16,8 @@ createApp({
             carrito:[],
             
             ubi: "",
-            video:true
+            video:true,
+            canvas:true
             
         }
     },
@@ -96,16 +97,30 @@ createApp({
         },
 
         async abrirCamara() {
-    try {
-        const stream = await navigator.mediaDevices.getUserMedia({
-            video: true
-        });
+            try {
+                    const stream = await navigator.mediaDevices.getUserMedia({video: true});
 
-        this.$refs.video.srcObject = stream;
-    } catch(error) {
-        console.log(error);
+                    this.$refs.video.srcObject = stream;
+                    } catch(error) {
+                        console.log(error);
+                    }
+        },
+
+        capturarFoto() {
+        const video = this.$refs.video;
+        const canvas = this.$refs.canvas;
+
+        const contexto = canvas.getContext('2d');
+
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+
+        contexto.drawImage(video, 0, 0);
+
+        console.log("Anda")
     }
-}
+
+
         
 
     },

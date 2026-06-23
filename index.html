@@ -399,14 +399,14 @@
 
                             <label for="Camara">Ingresa una foto tuya</label>
                             <video ref="video" autoplay></video>
-                            <button type="button" @click="abrirCamara()"  >Obtener imagen</button>
+                            <button type="button" @click="abrirCamara()">Obtener imagen</button>
 
                             <div class="camara_buttons">
-                                <button type="button" >Captura</button>
+                                <button type="button" @click="capturarFoto()" >Captura</button>
                                 <button type="button" >Guardar</button>
                             </div>
 
-                            <canvas id="canvas"></canvas>
+                            <canvas ref="canvas"></canvas>
 
                             <pre id="pre">
 
