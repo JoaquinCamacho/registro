@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PuraSuela</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+    <div id="app">
+
+        <header>
+
+            <img class="menuHamburguesa" src="images/hamburgerMenu 6.png" alt="menuHamburguesa">
+
+
+            <img @click="cambiarVista('home')" class="header_logoDesktop" src="images/Logo.png" alt="">
+            <img @click="cambiarVista('home')" class="header_logoMobile" src="images/favicon.png" alt="Logo">
+            
+            <div class="header_categorias">
+                <ul>
+                    
+                        <li @click="cambiarVista('home')">Inicio</li>
+                    
+
+                        
+                        <li @click="cambiarVista('indumentaria')">Indumentaria</li>
+                        
+                        
+                    
+                        <li @click="cambiarVista('calzados')">Calzados</li>
+                    
+                        
+                        
+                        <li @click="cambiarVista('ofertas')">Ofertas</li>
+                    
+                </ul>
+            </div>
+            
+            <div class="header_icons">
+                <button @click="cambiarVista('registro')">
+                    <img src="images/User.png" alt="User">
+                </button>
+                
+                <button>
+                    <img src="images/Search.png" alt="Search">
+                </button>
+
+                <button @click="cambiarVista('carrito')">
+                    <img src="images/ShoppingCart.png" alt="ShoppingCart">
+                </button>
+            </div>
+        </header>
+        
+        
+        <main>
+            
+            <div v-if="vista === 'home'" class="home">
+
+                <section  class="home_inicio" >
+                    
+                    <div class="home_div1">
+
+                        <h1>{{ home.titulo }}</h1>
+                    
+                        <p class="texto">{{ home.descripcion }}</p>
+
+                        <button class="buttons"  @click="cambiarVista('indumentaria')">Ver Producto</button>
+
+                    </div>
+                
+                    <div class="home_div2">
+
+                        <img src="images/imgEjemplo.png" alt="ImagenProducto">
+
+                    </div>
+                
+                </section>
+            
+            
+                <section   class="categorias">
+                
+                <h2 class="subtitulos">Categorias</h2>
+                
+                <div class="categorias_div1">
+                    
+                    <div  class="categorias_contenedor">
+                        <img src="images/ropaDeportiva.png" alt="ropaDeportiva">
+                        <h3>Indumentaria</h3>
+                    </div>
+                    <div class="categorias_contenedor">
+                        <img src="images/botines.png" alt="botines">
+                        <h3>Calzados</h3>
+                    </div>
+                    <div class="categorias_contenedor">
+                        <img src="images/ofertas.jpg" alt="Ofertas">
+                        <h3>Ofertas</h3>
+                    </div>
+                    <div class="categorias_contenedor">
+                        <img src="images/curitas.png" alt="curitas">
+                        <h3>Cuidados</h3>
+                    </div>
+                    
+
+                </div>
+                
+                </section>
+            
+                <section class="promocionEspecial">
+
+                <div class="promoEspecial_container">
+                    <h2 class="subtitulos">Promocion Especial</h2> 
+                    <p class="texto">Descripción de la promoción o beneficio</p>
+                    <button class="buttons" @click="cambiarVista('indumentaria')">Ver</button>
+                </div>
+
+                </section>
+            
+                <section class="otros">
+                
+                <div class="otros_container">
+                        <div>
+                            <img src="images/Truck.png" alt="Camion">
+                            <h3 class="subtitulos">Envio gratis</h3>
+                            <p class="texto">Envíos gratis a todo el país</p>
+                        </div>
+                        
+                        <div>
+                            <img src="images/Repeat.png" alt="Devolucion">
+                            <h3 class="subtitulos">Devoluciones</h3>
+                            <p class="texto">Tenés 30 días para devolver</p>
+                        </div>
+                        
+                        <div>
+                            <img src="images/Credit card.png" alt="Tarjeta">
+                            <h3 class="subtitulos">Pagos</h3>
+                            <p class="texto">Pagá en cuotas sin interés</p>
+                        </div>
+                    </div>
+                </section>
+
+
+            </div>
+
+
+
+
+            <div v-if="vista === 'indumentaria'" class="indumentaria">
+        
+                <h2 class="indumentaria_titulo">{{textoIndumentaria.titulo}}</h2>
+                <p class="indumentaria_descripcion">{{textoIndumentaria.descripcion}}</p>
+
+
+                    <div class="ordenar">
+                        <h2>Filtros</h2>
+                        <button>Ordenar por ▼</button>
+                    </div>
+
+                <section class="filtros">
+
+                    <div class="filtros_div1">
+
+                        <h2 class="indumentaria_titulo">Categorias</h2>
+    
+                            <ul class="filtros_categorias">
+                                <li>
+                                    <input type="checkbox" name="" id="">
+                                    Camisetas
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="" id="">
+                                    Pantalones
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="" id="">
+                                    Shorts
+                                </li>
+                                <li>
+                                    <input type="checkbox" name=""  id="">
+                                    Medias
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="" id="">
+                                    Camperas
+                                </li>
+                            </ul>
+    
+    
+                        <h2 class="indumentaria_titulo">Talle</h2>
+    
+                        <div class="filtros_talles">
+                            <button>XS</button>
+                            <button>S</button>
+                            <button>M</button>
+                            <button>L</button>
+                            <button>XL</button>
+                            <button>XXL</button>
+                        </div>
+    
+                        <div class="filtros_footer">
+                            
+                            <h2 class="indumentaria_titulo"> Precio</h2>
+                            <input type="text" placeholder="Precio que deseas">
+                            <button class="buttons">Aplicar Filtros</button>
+    
+                        </div>
+
+
+                    </div>
+                    
+                    <div class="filtros_div2">
+
+                        <section class="indumentaria_productos">
+                            <div v-for="producto in indumentaria"
+                                class="indumentaria_producto"
+                                :key="producto.id">
+        
+                                
+                                <img :src="producto.imagen" alt="">
+                                <h4>{{producto.nombre}}</h4>
+                                <p>{{producto.precio}}</p>
+
+                                <div class="filtros_div2_containerButtons">
+                                    
+                                    <button class="buttons" @click="agregarCarrito(producto)"> Comprar</button>
+                                    <button class="buttons" @click="mostrarDetalle(producto)">Detalles</button>
+                                </div>
+        
+                                
+                            </div>
+
+                        </section>
+                    </div>
+                </section>
+                    
+                    <section class="indumentaria_paginas">
+
+                        <div class="indumentaria_paginas_container">
+                            <button>Anterior</button>
+                            <button>2</button>
+                            <button>3</button>
+                            <button>4</button>
+                            <button>Siguiente</button>
+                        </div>
+                        
+                    </section>
+            </div>            
+
+
+
+            <div v-if="vista === 'carrito'" class="carrito">
+            
+            
+                        <h2 class="subtitulos">Tu carrito</h2>
+            
+                        <div v-for="producto in carrito"
+                                :key="producto.id"
+                                class="carrito_producto">
+            
+                                <div class="carrito_producto_img">
+                                    <img :src="producto.imagen" alt="">
+                                </div>
+            
+                                <div class="carrito_producto_info">
+                                    <h3>{{producto.nombre}}</h3>
+                                    <h5>{{producto.precio}}</h5>
+            
+                                        <div class="carrito_producto_info_cant">
+                                            <button @click="aumentarCantidad(producto)">+</button>
+                                            <p><span>{{producto.cantidad}}</span></p>
+                                            <button @click="disminuirCantidad(producto)">-</button>
+            
+                                        </div>
+                                </div>
+            
+                                <button @click="eliminarProducto(producto.id)" class="button_borrar">x</button>
+            
+                        </div>
+            
+                        <div class="carrito_total">
+                            <h3>Total:</h3>
+                            <p>$1234</p>
+                        </div>
+            
+                        <div class="carrito_buttons">
+                            <button class="buttons">Finalizar Compra</button>
+                            <button @click="cambiarVista('indumentaria')" class="buttons">Seguir Comprando</button>
+                        </div>
+            
+            </div>
+
+
+
+
+            <div v-if="vista === 'detallesProducto'" class="detalles">
+
+                <img class="detalles_imgProducto" :src="detalleDelProducto.imagen" alt="producto">
+
+                <div class="containerImgs">
+                    <img :src="detalleDelProducto.imagen"  alt="">
+                    <img :src="detalleDelProducto.imagen"  alt="">
+                    <img :src="detalleDelProducto.imagen" alt="">
+                </div>
+
+
+                <div class="detallesProducto_container">
+                    
+                    <div class="detalles_header">
+
+                        <h2 class="subtitulos">{{detalleDelProducto.nombre}}</h2>
+                        <p class="subtitulos">{{detalleDelProducto.precio}}</p>
+
+
+                        <h3 class="subtitulos">Talle</h3>
+
+                        <div class="detalles_talles">
+                            <button>38</button>
+                            <button>39</button>
+                            <button>40</button>
+                            <button>41</button>
+                            <button>42</button>
+                            <button>43</button>
+                        </div>
+
+                        <h3 class="subtitulos">Cantidad</h3>
+
+                        <div class="detalles_buttons">
+                            <button @click="aumentarCantidad(producto)">+</button>
+                            <p><span>1</span></p>
+                            <button @click="disminuirCantidad(producto)">-</button>
+                        </div>
+                        
+                        <button class="buttons" @click="agregarCarrito(detalleDelProducto)">Comprar </button>
+
+                        <div class="detalles_footer">
+                            
+                            <div>
+                                <img src="images/Truck.png" alt="envio">
+                                <p>Envio Gratis! en compras superiores a $50.000</p>
+
+                            </div>
+                            <div>
+                                <img src="images/Repeat.png" alt="Devolucion">
+                                <p>Devolucion gratis!, tienes 30 días desde la recepcion</p>
+
+                            </div>
+                            <div>
+                                <img src="images/Credit card.png" alt="Pagos">
+                                <p>Compra protegida, Pago 100% seguro</p>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="detalles_container_datos">
+
+                    <div class="detalles_descripcion">
+
+                        <h2 class="subtitulos">Descripción</h2>
+                        
+                        <p>{{detalleDelProducto.descripcion}}</p>
+                            
+                        <p>{{ detalleDelProducto.caracteristicas }}</p>
+                    
+                    </div>
+
+
+                </div>
+
+            </div>
+
+                <div v-if="vista === 'registro'" class="registro">
+
+                        <form action="registrar.php" method="post">
+                            
+                            <label for="Nombre"></label>
+                            <input name="Nombre" type="text" placeholder="Ingresa tu nombre">
+
+                            <label for="Email"></label>
+                            <input  name="Email" type="email" placeholder="Ingresa tu Email">
+
+                            <label for="Contraseña"></label>
+                            <input name="Contraseña"  type="password" placeholder="Ingresa tu Contraseña">
+
+                            <div class="registro_localizacion">
+                                <label for="Localizacion"></label>
+                                <input v-model="ubi" name="Localizacion" type="text" placeholder="Hace click para obtener Ubicacion →">
+                                <button type="button" @click="obtenerGeocalizacion()">Obtener ubicacion</button>
+                            </div>
+
+                            <label for="Camara">Ingresa una foto tuya</label>
+                            <video ref="video" autoplay></video>
+                            <button type="button" @click="abrirCamara()"  >Obtener imagen</button>
+
+                            <div class="camara_buttons">
+                                <button type="button" >Captura</button>
+                                <button type="button" >Guardar</button>
+                            </div>
+
+                            <canvas id="canvas"></canvas>
+
+                            <pre id="pre">
+
+                            </pre>
+
+                            <button type="submit">Enviar</button>
+                        </form>
+
+                </div>
+
+
+
+                    
+                </main>
+                
+
+
+                
+                <footer v-if="vista !== 'carrito'">
+            
+                        <div class="footer_container">
+                            <div class="footer_container_div1">
+                            <img src="images/Logo.png" alt="Logo">
+                        </div>
+                
+                        <div class="footer_container_div2">
+                            <a href=""><img src="images/instagram.png" alt="instagram"></a>
+                            <a href=""><img src="images/facebook.png" alt="facebook"></a>
+                            <a href=""><img src="images/twitter.png" alt="twitter"></a>
+                        </div>
+                
+                
+                    </div>
+            
+                    <div class="footer2">
+                            <p>© 2026 Your Website. All rights reserved.</p>
+                            <p>Privacy Policy</p>
+                            <p>Terms of Service</p>
+
+                    </div>
+                </footer>
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+    <script src="js/indumentaria.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
+
