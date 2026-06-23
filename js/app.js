@@ -101,7 +101,7 @@ createApp({
             video: true
         });
 
-        this.$refs.video.srcObject = stream;
+        this.video.srcObject = stream;
     } catch(error) {
         console.log(error);
     }
