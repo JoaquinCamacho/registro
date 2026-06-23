@@ -392,26 +392,25 @@
                             <input name="Contraseña"  type="password" placeholder="Ingresa tu Contraseña">
 
                             <div class="registro_localizacion">
+
                                 <label for="Localizacion"></label>
-                                <input v-model="ubi" name="Localizacion" type="text" placeholder="Hace click para obtener Ubicacion →">
+                                <input v-model="ubi" name="Localizacion" type="text" placeholder="Click para obtener Ubicacion">
+                                
                                 <button type="button" @click="obtenerGeocalizacion()">Obtener ubicacion</button>
+                                
                             </div>
 
                             <label for="Camara">Ingresa una foto tuya</label>
                             <video ref="video" autoplay></video>
                             <button type="button" @click="abrirCamara()">Obtener imagen</button>
 
-                            <div class="camara_buttons">
-                                <button type="button" @click="capturarFoto()" >Captura</button>
-                                <button type="button" >Guardar</button>
-                            </div>
+                            <button type="button" @click="capturarFoto()" >Captura</button>
 
                             <canvas ref="canvas"></canvas>
 
-                            <pre id="pre">
+                            <input type="hidden" name="Foto" :value="foto">
 
-                            </pre>
-
+                            
                             <button type="submit">Enviar</button>
                         </form>
 

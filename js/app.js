@@ -17,7 +17,8 @@ createApp({
             
             ubi: "",
             video:true,
-            canvas:true
+            canvas:true,
+            foto:""
             
         }
     },
@@ -117,8 +118,11 @@ createApp({
 
         contexto.drawImage(video, 0, 0);
 
-        console.log("Anda")
-    }
+
+        this.foto= canvas.toDataURL("image/png")
+        },
+
+
 
 
         
